@@ -6,6 +6,8 @@ package com.mycompany.calculadoraresistores;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.net.URL;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -19,6 +21,14 @@ private ProgramaResistivos parent;
        
         initComponents();
         this.parent = parent;  // Guarda referencia del JFrame
+        
+        URL imgURL9 = getClass().getResource("/img/RTDW.png");
+        if(imgURL9 != null) {
+            ImageIcon icono = new ImageIcon(imgURL9);
+            Circuito.setIcon(icono);
+        } else {
+            System.err.println("Error: No se encontró la imagen.");
+        }
      
     }
     /**
@@ -43,6 +53,7 @@ private ProgramaResistivos parent;
         ntc0 = new javax.swing.JLabel();
         ntc100 = new javax.swing.JLabel();
         btnRegresa = new javax.swing.JButton();
+        Circuito = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jVi = new javax.swing.JLabel();
@@ -134,6 +145,8 @@ private ProgramaResistivos parent;
         });
         jPanel1.add(btnRegresa);
         btnRegresa.setBounds(290, 320, 110, 42);
+        jPanel1.add(Circuito);
+        Circuito.setBounds(0, 10, 410, 350);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultados RTD", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Candara Light", 1, 18))); // NOI18N
@@ -282,6 +295,7 @@ private ProgramaResistivos parent;
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Circuito;
     private javax.swing.JLabel R1;
     private javax.swing.JLabel R2;
     private javax.swing.JLabel R3;

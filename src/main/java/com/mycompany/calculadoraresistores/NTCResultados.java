@@ -6,6 +6,8 @@ package com.mycompany.calculadoraresistores;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.net.URL;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -20,6 +22,17 @@ private ProgramaResistivos parent;
         initComponents();  
         this.parent = parent;  // Guarda referencia del JFrame
   
+          
+        URL imgURL8 = getClass().getResource("/img/NTC3.png");
+        System.out.println("Ruta encontrada: " + imgURL8);
+        if(imgURL8 != null) {
+            ImageIcon icono = new ImageIcon(imgURL8);
+            Circuito.setIcon(icono);
+        } else {
+            System.err.println("Error: No se encontró la imagen.");
+        }
+    
+    
     }
 
     /**
@@ -45,6 +58,7 @@ private ProgramaResistivos parent;
         ntc0 = new javax.swing.JLabel();
         ntc100 = new javax.swing.JLabel();
         btnRegresa = new javax.swing.JButton();
+        Circuito = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jVi = new javax.swing.JLabel();
@@ -137,6 +151,8 @@ private ProgramaResistivos parent;
         });
         jPanel1.add(btnRegresa);
         btnRegresa.setBounds(290, 320, 110, 42);
+        jPanel1.add(Circuito);
+        Circuito.setBounds(-10, 10, 420, 350);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Resultados NTC", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Candara Light", 1, 18))); // NOI18N
@@ -280,7 +296,7 @@ private ProgramaResistivos parent;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresaActionPerformed
-        parent.showPanel("CalculadoraRTD");
+        parent.showPanel("CalculadoraNTC");
     }//GEN-LAST:event_btnRegresaActionPerformed
 
     public void setResultado(Float vi, Float r1, Float r2, Float r3, Float ntc1, Float ntc2) {
@@ -301,6 +317,7 @@ private ProgramaResistivos parent;
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Circuito;
     private javax.swing.JLabel R1;
     private javax.swing.JLabel R2;
     private javax.swing.JLabel R3;
